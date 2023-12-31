@@ -7,6 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+        keyframes: {
+            wiggle: {
+                "0%, 100%": {
+                    opacity: 1},
+                  "50%": {opacity: .5
+                  }
+            }
+          },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
