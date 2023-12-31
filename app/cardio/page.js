@@ -23,14 +23,17 @@ export default function Page() {
                 if (cardioState===1) {
                     if (setCount===numberOfSets) {
                         setCardioState(0)
+                        PlaySound();
                         return 0;
                     }
+                    PlaySound();
                     setCardioState(2);
                     return 120
                 }
                 else if (cardioState===2) {
+                    PlaySound();
                     setCardioState(1)
-                    setSetCount(prev => prev+0.5)
+                    setSetCount(prev => prev+1)
                     return 60
                 }
                 return 0; // Set seconds to 0

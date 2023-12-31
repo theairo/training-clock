@@ -30,14 +30,14 @@ export default function Page() {
                         }
                         else {
                             setExerciseCount(1)
-                            setSetCount(prev => prev+0.5)
+                            setSetCount(prev => prev+1)
                             setLiftingState(1)
                             PlaySound();
                             return 0
                         }
                     }
                     else {
-                        setExerciseCount(prev => prev+0.5)
+                        setExerciseCount(prev => prev+1)
                         setLiftingState(1)
                         PlaySound();
                         return 0
