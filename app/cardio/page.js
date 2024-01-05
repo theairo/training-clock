@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from "react"
 
 export default function Page() {
-    const numberOfSets = 4;
+    const numberOfSets = 5
     const [cardioState, setCardioState] = useState(0) //0 -> nothing, 1 -> cardio, 2 -> rest
     const [setCount, setSetCount] = useState(1);
     const [seconds, setSeconds] = useState(2);
@@ -28,13 +28,13 @@ export default function Page() {
                     }
                     PlaySound();
                     setCardioState(2);
-                    return 120
+                    return 60
                 }
                 else if (cardioState===2) {
                     PlaySound();
                     setCardioState(1)
                     setSetCount(prev => prev+1)
-                    return 60
+                    return 39
                 }
                 return 0; // Set seconds to 0
               } else {
@@ -63,7 +63,7 @@ export default function Page() {
             {cardioState===0 && setCount===numberOfSets && <div className="rounded-full bg-gray-100 shadow-lg w-64 h-64 flex justify-center items-center">
                 <div className='font-medium text-3xl'>Well Done!</div>
             </div>}
-            {cardioState===0 && setCount!==numberOfSets && <div onClick={() => {setCardioState(1); setSeconds(60)}}className="transition-all cursor-pointer hover:bg-gray-200 rounded-full bg-gray-100 shadow-lg w-64 h-64 flex justify-center items-center">
+            {cardioState===0 && setCount!==numberOfSets && <div onClick={() => {setCardioState(1); setSeconds(30)}}className="transition-all cursor-pointer hover:bg-gray-200 rounded-full bg-gray-100 shadow-lg w-64 h-64 flex justify-center items-center">
                 <div className='font-medium text-3xl'>Click to start</div>
             </div>}
             {cardioState>0 && <div className={`mt-10 font-medium text-8xl mb-6`}>{Math.floor(seconds/60)%60<10 ? `0${Math.floor(seconds/60) % 60}` : Math.floor(seconds/60)%60}:{seconds%60<10 ? `0${seconds % 60}` : seconds%60}</div>}
